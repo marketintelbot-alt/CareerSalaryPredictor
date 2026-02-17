@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Salary Predictor</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="https://cdn.jsdelivr.net/pyodide/v0.27.3/full/pyodide.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>Career Salary Predictor</h1>
+        <p class="sub">Estimate your likely salary trajectory using a transparent, editable model.</p>
+        <p class="disclaimer">Not financial advice; estimates vary.</p>
+      </header>
+
+      <section id="loadingState" class="card loading-card">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Loading calculator…</p>
+      </section>
+
+      <section id="errorState" class="card hidden error-card">
+        <h2>Calculator failed to load</h2>
+        <p id="errorText"></p>
+        <p>Refresh the page and try again. If it persists, verify internet access to the Pyodide CDN.</p>
+      </section>
+
+      <form id="predictForm" class="card hidden" novalidate>
+        <div class="grid">
+          <label>
+            Major group
+            <select id="majorGroup" name="major_group" required></select>
+          </label>
+
+          <label>
+            Region
+            <select id="region" name="region" required></select>
+          </label>
+
+          <label>
+            School tier
+            <select id="schoolTier" name="school_tier" required></select>
+          </label>
+
+          <label>
+            Graduation year
+            <input id="graduationYear" name="graduation_year" type="number" min="1980" max="2100" required />
+          </label>
+
+          <label>
+            GPA (optional)
+            <input id="gpa" name="gpa" type="number" min="0" max="4" step="0.01" placeholder="e.g., 3.62" />
+          </label>
+
+          <label>
+            Internships
+            <select id="internships" name="internships" required>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2+">2+</option>
+            </select>
+          </label>
+
+          <label>
+            Work experience years (0-5, optional)
+            <input id="workExperienceYears" name="work_experience_years" type="number" min="0" max="5" step="0.5" placeholder="0" />
+          </label>
+
+          <label class="checkbox-row">
+            <input id="highCostMetro" name="high_cost_metro" type="checkbox" />
+            <span>Targeting a high-cost metro</span>
+          </label>
+        </div>
+
+        <fieldset>
+          <legend>Skills</legend>
+          <div id="skillsWrap" class="chips"></div>
+        </fieldset>
+
+        <div class="actions">
+          <button id="estimateBtn" type="submit">Estimate</button>
+        </div>
+      </form>
+
+      <section id="results" class="card hidden">
+        <h2>Your estimate</h2>
+        <p class="metric-label">Median starting salary</p>
+        <p id="startingMid" class="big-number">$0</p>
+
+        <div class="range-row">
+          <div>
+            <p class="small-label">Starting low</p>
+            <p id="startingLow">$0</p>
+          </div>
+          <div>
+            <p class="small-label">Starting high</p>
+            <p id="startingHigh">$0</p>
+          </div>
+        </div>
+
+        <div class="projection-grid">
+          <article>
+            <h3>5-year projection</h3>
+            <p id="year5Mid" class="projection-mid">$0</p>
+            <p id="year5Range" class="muted">$0 - $0</p>
+          </article>
+          <article>
+            <h3>10-year projection</h3>
+            <p id="year10Mid" class="projection-mid">$0</p>
+            <p id="year10Range" class="muted">$0 - $0</p>
+          </article>
+        </div>
+
+        <article>
+          <h3>Confidence</h3>
+          <p id="confidenceScore" class="confidence-score">0/100</p>
+          <ul id="confidenceReasons"></ul>
+        </article>
+
+        <article>
+          <h3>What is driving this estimate</h3>
+          <ul id="drivers"></ul>
+        </article>
+
+        <article>
+          <h3>How to increase your estimate</h3>
+          <ul id="tips"></ul>
+        </article>
+
+        <p class="disclaimer">Not financial advice; estimates vary.</p>
+
+        <div class="actions">
+          <button id="copyResultBtn" type="button">Copy my results</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

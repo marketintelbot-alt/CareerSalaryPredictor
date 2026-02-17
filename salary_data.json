@@ -1,0 +1,102 @@
+{
+  "regions": ["West", "Southwest", "Midwest", "Northeast", "South"],
+  "school_tier_multipliers": {
+    "Top 25": 1.10,
+    "State School": 1.02,
+    "Community College": 0.95,
+    "Other": 0.98
+  },
+  "gpa_bands": [
+    {"label": "<3.0", "min": 0.0, "max": 2.99, "multiplier": 0.97},
+    {"label": "3.0-3.49", "min": 3.0, "max": 3.49, "multiplier": 1.00},
+    {"label": "3.5-3.79", "min": 3.5, "max": 3.79, "multiplier": 1.03},
+    {"label": "3.8+", "min": 3.8, "max": 4.0, "multiplier": 1.05}
+  ],
+  "internship_multipliers": {
+    "0": 1.00,
+    "1": 1.06,
+    "2+": 1.12
+  },
+  "skills": {
+    "Python": 0.03,
+    "SQL": 0.025,
+    "Excel": 0.015,
+    "AWS": 0.025,
+    "Java": 0.02,
+    "Tableau": 0.015,
+    "Power BI": 0.015,
+    "Salesforce": 0.02,
+    "Project Management": 0.015,
+    "Data Analysis": 0.02,
+    "Communication": 0.01,
+    "Public Speaking": 0.01
+  },
+  "max_skills_boost": 0.10,
+  "region_col_multipliers": {
+    "West": 1.07,
+    "Southwest": 1.03,
+    "Midwest": 1.00,
+    "Northeast": 1.06,
+    "South": 1.01
+  },
+  "high_cost_metro_multiplier": 1.05,
+  "major_skill_focus": {
+    "Computer Science": ["Python", "SQL", "AWS", "Java"],
+    "Engineering": ["Python", "Project Management", "Data Analysis", "Communication"],
+    "Finance": ["Excel", "SQL", "Tableau", "Power BI"],
+    "Nursing": ["Communication", "Data Analysis", "Project Management"],
+    "Marketing": ["Salesforce", "Excel", "Data Analysis", "Public Speaking"],
+    "Education": ["Communication", "Public Speaking", "Data Analysis"],
+    "Trades": ["Project Management", "Communication", "Data Analysis"],
+    "Arts": ["Communication", "Project Management", "Data Analysis"],
+    "Business": ["Excel", "SQL", "Project Management", "Power BI"],
+    "Life Sciences": ["Data Analysis", "SQL", "Python", "Communication"],
+    "Other/Unknown": ["Excel", "Communication", "Project Management"]
+  },
+  "major_groups": {
+    "Computer Science": {
+      "growth_factor": 0.95,
+      "baselines": {"West": 98000, "Southwest": 90000, "Midwest": 86000, "Northeast": 95000, "South": 88000}
+    },
+    "Engineering": {
+      "growth_factor": 0.85,
+      "baselines": {"West": 85000, "Southwest": 80000, "Midwest": 78000, "Northeast": 83000, "South": 79000}
+    },
+    "Finance": {
+      "growth_factor": 0.78,
+      "baselines": {"West": 82000, "Southwest": 76000, "Midwest": 73000, "Northeast": 86000, "South": 74000}
+    },
+    "Nursing": {
+      "growth_factor": 0.72,
+      "baselines": {"West": 76000, "Southwest": 73000, "Midwest": 70000, "Northeast": 78000, "South": 71000}
+    },
+    "Marketing": {
+      "growth_factor": 0.60,
+      "baselines": {"West": 68000, "Southwest": 64000, "Midwest": 62000, "Northeast": 70000, "South": 63000}
+    },
+    "Education": {
+      "growth_factor": 0.40,
+      "baselines": {"West": 52000, "Southwest": 50000, "Midwest": 48000, "Northeast": 56000, "South": 50000}
+    },
+    "Trades": {
+      "growth_factor": 0.55,
+      "baselines": {"West": 60000, "Southwest": 58000, "Midwest": 56000, "Northeast": 62000, "South": 57000}
+    },
+    "Arts": {
+      "growth_factor": 0.45,
+      "baselines": {"West": 58000, "Southwest": 54000, "Midwest": 52000, "Northeast": 61000, "South": 53000}
+    },
+    "Business": {
+      "growth_factor": 0.58,
+      "baselines": {"West": 70000, "Southwest": 67000, "Midwest": 65000, "Northeast": 73000, "South": 66000}
+    },
+    "Life Sciences": {
+      "growth_factor": 0.62,
+      "baselines": {"West": 72000, "Southwest": 69000, "Midwest": 67000, "Northeast": 76000, "South": 68000}
+    },
+    "Other/Unknown": {
+      "growth_factor": 0.50,
+      "baselines": {"West": 62000, "Southwest": 60000, "Midwest": 58000, "Northeast": 64000, "South": 59000}
+    }
+  }
+}
